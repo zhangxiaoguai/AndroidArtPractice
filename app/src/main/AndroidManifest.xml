@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ericzhang.androidartpractice">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- 通过aidl远程调用时服务端所需的权限声明 begin -->
+    <permission
+        android:name="com.ericzhang.androidartpractice.chapter2.ipccategories.aidl.permisson.ACCESS_MAGAZINE_SERVICE"
+        android:protectionLevel="normal" />
+    <!-- 通过aidl远程调用时服务端所需的权限声明 end -->
+
+    <!-- 通过aidl远程调用时客户端所需的权限声明 begin -->
+    <uses-permission android:name="com.ericzhang.androidartpractice.chapter2.ipccategories.aidl.permisson.ACCESS_MAGAZINE_SERVICE" />
+    <!-- 通过aidl远程调用时客户端所需的权限声明 end -->
+    <!-- 使用ContentProvider时申请权限 begin -->
+    <uses-permission android:name="com.ericzhang.androidartpractice.chapter2.ipccategories.contentprovider.PROVIDER" />
+    <!-- 使用ContentProvider时申请权限 end -->
+    <!-- ipc方式之socket需要申请网络权限 begin -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- ipc方式之socket需要申请网络权限 end -->
+
+    <application
+        android:name=".MyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 第二章 begin -->
+        <activity android:name=".chapter2.Chapter2MainActivity" />
+        <activity android:name=".chapter2.binder.BinderActivity" />
+
+        <service
+            android:name=".chapter2.binder.remoteservice.generate.BookManagerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote.book" />
+        <service
+            android:name=".chapter2.binder.remoteservice.manual.BookManagerManualService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote.book.manual" />
+        <service
+            android:name=".chapter2.binder.remoteservice.manual.ComponyManagerManualService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote.compony.manual" />
+
+        <activity android:name=".chapter2.ipccategories.IPCCategoriesActivity" />
+        <activity android:name=".chapter2.ipccategories.bundle.Bundle1Activity" />
+        <activity
+            android:name=".chapter2.ipccategories.bundle.Bundle2Activity"
+            android:process=":ipccategories.bundle" />
+        <activity android:name=".chapter2.ipccategories.fileshare.File1Activity" />
+        <activity
+            android:name=".chapter2.ipccategories.fileshare.File2Activity"
+            android:process=":ipccategories.file" />
+        <activity android:name=".chapter2.ipccategories.messenger.MessengerActivity" />
+
+        <service
+            android:name=".chapter2.ipccategories.messenger.MessengerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":ipccategories.messenger" />
+
+        <activity android:name=".chapter2.ipccategories.aidl.AIDLActivity" />
+        <service
+            android:name=".chapter2.ipccategories.aidl.MagazineService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":ipccategories.aidl" />
+
+        <activity android:name=".chapter2.ipccategories.contentprovider.ContentProviderActivity" />
+        <!-- provider中android:multiprocess属性用来决定改provider是否是单实例，false为单实例，可以认为所有provider都是单实例的 -->
+        <provider
+            android:name=".chapter2.ipccategories.contentprovider.BookProvider"
+            android:authorities="com.ericzhang.androidartpractice.chapter2.ipccategories.contentprovider"
+            android:permission="com.ericzhang.androidartpractice.chapter2.ipccategories.contentprovider.PROVIDER"
+            android:process=":ipccategories.provider" />
+        <activity android:name=".chapter2.ipccategories.socket.TCPClientActivity" />
+
+        <service
+            android:name=".chapter2.ipccategories.socket.TCPServerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":ipccategories.socket" />
+        <service
+            android:name=".chapter2.binderpool.BinderPoolService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":binderpool" />
+
+        <activity android:name=".chapter2.binderpool.BinderPoolActivity" />
+        <!-- 第二章 end -->
+
+        <!-- 第三章 begin -->
+        <activity android:name=".chapter3.Chapter3MainActivity" />
+        <activity android:name=".chapter3.activity.ScrollActivity" />
+        <activity android:name=".chapter3.activity.Demo1Activity" />
+        <activity android:name=".chapter3.activity.Demo2Activity" />
+        <!-- 第三章 end -->
+
+        <!-- 第四章 begin -->
+        <activity android:name=".chapter4.Chapter4MainActivity" />
+        <!-- 第四章 end -->
+
+        <!-- 第五章 begin -->
+        <activity
+            android:name=".chapter5.Chapter5MainActivity"
+            android:process=":remote" />
+        <activity android:name=".chapter5.Notification1Activity" />
+        <activity android:name=".chapter5.Notification2Activity" />
+
+        <receiver android:name=".chapter5.MyAppwidgetProvider">
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/appwidget_provider_info" />
+
+            <intent-filter>
+
+                <!-- 自定义的action用于识别小部件的单击行为 -->
+                <action android:name="com.ericzhang.androidartpractice.chapter5.action.CLICK" />
+                <!-- 小部件的标识，系统规范，必须存在，如果不加则这个receiver就不是一个桌面小部件且无法出现在小部件列表中 -->
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+        </receiver>
+        <activity android:name=".chapter5.EmulateActivity" />
+        <!-- 第五章 end -->
+
+        <!-- 第六章 begin -->
+        <activity android:name=".chapter6.Chapter6MainActivity" />
+        <!-- 第六章 end -->
+
+        <!-- 第七章 begin -->
+        <activity android:name=".chapter7.Chapter7MainActivity" />
+        <activity android:name=".chapter7.LayoutAnimationActivity" />
+        <!-- 第七章 end -->
+
+        <!-- 第八章 begin -->
+        <activity android:name=".chapter8.Chapter8MainActivity" />
+        <!-- 第八章 end -->
+
+        <!-- 第十一章 begin -->
+        <activity android:name=".chapter11.Chapter11MainActivity" />
+        <service
+            android:name=".chapter11.MyLocalIntentService"
+            android:exported="false" />
+        <!-- 第十一章 end -->
+
+        <!-- 第十二章 begin -->
+        <activity
+            android:name=".chapter12.Chapter12MainActivity"
+            android:hardwareAccelerated="true" />
+        <!-- 第十二章 end -->
+
+        <!-- 第十三章 begin -->
+        <activity android:name=".chapter13.Chapter13MainActivity" />
+        <!-- 第十三章 end -->
+
+        <!-- 第十四章 begin -->
+        <activity android:name=".chapter14.Chapter14MainActivity" />
+        <!-- 第十四章 end -->
+
+        <!-- 第十五章 begin -->
+        <activity android:name=".chapter15.Chapter15MainActivity" />
+        <!-- 第十五章 end -->
+
+    </application>
+
+</manifest>

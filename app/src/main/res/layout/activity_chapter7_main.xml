@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_view_anim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="View动画测试" />
+
+        <Button
+            android:id="@+id/btn_view_anim_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="View动画测试" />
+
+        <Button
+            android:id="@+id/btn_view_anim_3d"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="View动画测试" />
+
+        <Button
+            android:id="@+id/btn_frame_anim"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/frame_anim"
+            android:text="帧动画测试" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="layout_animation"
+            android:text="LayoutAnimation" />
+
+        <Button
+            android:id="@+id/btn_property"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="propertyAnimTranslationY"
+            android:text="属性动画TranslationY" />
+
+        <Button
+            android:id="@+id/btn_property_background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="propertyAnimBackground"
+            android:text="属性动画background" />
+
+        <Button
+            android:id="@+id/btn_property_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="propertyAnimSet"
+            android:text="属性动画合集" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="propertyAnimSetXML"
+            android:text="属性动画合集XML" />
+
+        <Button
+            android:id="@+id/btn_x2_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="通过View动画将按钮在x方向扩大0" />
+
+        <Button
+            android:id="@+id/btn_x2_property"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="通过属性动画将按钮在x方向扩大1" />
+
+        <Button
+            android:id="@+id/btn_x2_property2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="通过属性动画将按钮在x方向扩大2" />
+
+    </LinearLayout>
+
+</ScrollView>

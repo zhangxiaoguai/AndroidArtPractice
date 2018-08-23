@@ -1,0 +1,163 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bitmap_drawable_repeat"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bitmap_drawable_mirror"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bitmap_drawable_clamp"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_drawable"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_drawable_gradient_linear"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_drawable_gradient_radius"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_drawable_gradient_sweep"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_drawable_padding"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_drawable_stroke"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/shape_drawable_ring"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/layer_drawable_wechat"
+            android:text="Android开发艺术探索" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/layer_drawable_wechat"
+            android:hint="请输入手机号码"
+            android:padding="4dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/state_list_drawable_selector"
+            android:padding="20dp"
+            android:text="提交手机号" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:padding="20dp"
+            android:src="@drawable/level_list_drawable" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/level_list_drawable"
+            android:padding="20dp"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:id="@+id/textViewTransition"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/transition_drawable"
+            android:padding="20dp"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/inset_drawable"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:id="@+id/scale"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/scale_drawable"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:id="@+id/clip"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/clip_drawable"
+            android:text="Android开发艺术探索" />
+
+        <TextView
+            android:id="@+id/custom_circle"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_margin="10dp"
+            android:text="Android开发艺术探索" />
+
+    </LinearLayout>
+
+</ScrollView>
