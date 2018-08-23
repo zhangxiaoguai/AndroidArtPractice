@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        当前是按照LinearLayout的vertical来写
+        如果外层引用的位置也是相同的布局和方向，则当前的LinearLayout可以隐去并且绘制时少绘制一层
+    -->
+
+    <Button
+        android:id="@+id/btn_back2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="返回"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_title2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="标题"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btn_menu2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="菜单"
+        android:textSize="12sp" />
+</merge>
