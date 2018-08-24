@@ -76,6 +76,8 @@ public class TCPClientActivity extends Activity {
                 e.printStackTrace();
             }
         }
+
+        mHandler.removeCallbacksAndMessages(null);
     }
 
     public void sendMessage2Server(View view) {

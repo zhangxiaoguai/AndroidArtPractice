@@ -137,6 +137,10 @@ public class Chapter11MainActivity extends Activity {
     }
 
     // 有可能Activity结束了但是该Task仍未执行完毕，造成内存泄漏，该内部变量Task对外部Activity是强引用导致无法GC
+    // Activity结束被回收的时候，GC会检查是否有对象对该Activity有引用
+    // GC发现该AsyncTask对此Activity持有弱引用，不管当前内存是否足够，都会回收该Activity
+    // 静态内部类不会持有外部类的隐式引用，非隐式内部类会持有对外部类的引用
+    // 普通AsyncTask首先设置为static class，然后对该外部类使用弱引用WeakReference
     private static class DownloadFilesTask extends AsyncTask<URL, Integer, Long> {
 
         private final WeakReference<Activity> activityWeakReference;
