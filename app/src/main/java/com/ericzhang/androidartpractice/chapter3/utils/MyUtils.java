@@ -5,9 +5,12 @@ import android.app.ActivityManager.RunningAppProcessInfo;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Process;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.WindowManager;
+
+import com.ericzhang.androidartpractice.MyApp;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -65,6 +68,21 @@ public class MyUtils {
 
     public static void executeInThread(Runnable runnable) {
         new Thread(runnable).start();
+    }
+
+    public static String getCurrentProcessName() {
+        int myPid = Process.myPid();
+        String processName = "";
+        ActivityManager mActivityManager =
+                (ActivityManager) MyApp.getAppInstance().getSystemService(Context.ACTIVITY_SERVICE);
+        if (mActivityManager != null) {
+            for (ActivityManager.RunningAppProcessInfo info : mActivityManager.getRunningAppProcesses()) {
+                if (info.pid == myPid) {
+                    processName = info.processName;
+                }
+            }
+        }
+        return processName;
     }
 
 }

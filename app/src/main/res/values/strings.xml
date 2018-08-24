@@ -1,3 +1,8 @@
 <resources>
+
     <string name="app_name">AndroidArtPractice</string>
+
+    <!-- BlockCanary Monitor app`s label -->
+    <string name="block_canary_display_activity_label">MyBlocks</string>
+
 </resources>
