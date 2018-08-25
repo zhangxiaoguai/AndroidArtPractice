@@ -2,7 +2,7 @@
 
 ## 布局优化
 
-    1.使用高性能布局，LinearLayout优于RelativeLayout
+    1.减少布局文件层级，使用高性能布局，LinearLayout优于RelativeLayout
     2.include/merge
     3.ViewStub
     
