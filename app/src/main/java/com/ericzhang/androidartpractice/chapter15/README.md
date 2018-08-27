@@ -2,7 +2,7 @@
 
 ## 布局优化
 
-    1.减少布局文件层级，使用高性能布局，LinearLayout优于RelativeLayout
+    1.减少布局文件层级，使用高性能布局，相同同层级下LinearLayout优于RelativeLayout
     2.include/merge
     3.ViewStub
     
@@ -19,10 +19,10 @@
   LeakCanary
 
     1.静态变量导致内存泄漏：mContext = this，静态变量的生命周期远远长于Activity，导致Activity关闭之后静态变量mContext任然引用该Activity从而无法回收
-        onDestroy时将mContext = null
+        Activity退出时（onDestroy）将mContext = null
     2.单例模式导致内存泄漏：单例生命周期和Application一样，该单例持有Activity的引用时
-        Activity退出时将单例模式内的引用置为null（此例中为ArrayList<Listner>）
-        如果需要使用Context，不要传入Activity的Context， 正确的做法是使用Application的Context
+        Activity退出时（onDestroy）将单例模式内的引用置为null（此例中为ArrayList<Listener>，解注册）
+        单例中如果需要使用Context，不要传入Activity的Context， 正确的做法是使用Application的Context
     3.属性动画导致内存泄漏：属性动画一直播放没有cancel()
         onDestroy的时候属性动画要cancel掉
     4.AsyncTask导致内存泄漏-->内部类持有外部Activity的引用
@@ -42,7 +42,7 @@
 ## ListView与Bitmap优化
 
   参考12章
-  ViewHolder，静止时加载，getView方法去掉重复调用，开启硬件加速
+  ViewHolder，静止时加载，getView方法去掉重复调用（ListView和GridView），开启硬件加速
   Bitmap压缩到控件大小，内存缓存与磁盘缓存
   
 ## 线程优化
