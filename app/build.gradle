@@ -14,26 +14,11 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            multiDexKeepFile file('maindexlist.txt')
+            multiDexKeepProguard file('maindexlist.pro')
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-}
-
-afterEvaluate {
-    println "afterEvaluate"
-    tasks.matching {
-        it.name.startsWith('dex')
-    }.each { dx ->
-        def listFile = project.rootDir.absolutePath + '/app/maindexlist.txt'
-        println "root dir:" + project.rootDir.absolutePath
-        println "dex task found: " + dx.name
-        if (dx.additionalParameters == null) {
-            dx.additionalParameters = []
-        }
-        dx.additionalParameters += '--multi-dex'
-        dx.additionalParameters += '--main-dex-list=' + listFile
-        dx.additionalParameters += '--minimal-main-dex'
     }
 }
 
@@ -45,13 +30,17 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'org.jetbrains:annotations-java5:15.0'
     implementation 'com.nineoldandroids:library:2.4.0'
+
+    // multidex
     implementation 'com.android.support:multidex:1.0.3'
 
+    // leakcanary
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
     // Optional, if you use support library fragments:
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.1'
 
+    // blockcanary
     // 仅在debug包启用BlockCanary进行卡顿监控和提示的话，可以这么用
     debugImplementation 'com.github.markzhai:blockcanary-android:1.5.0'
     releaseImplementation 'com.github.markzhai:blockcanary-no-op:1.5.0'
