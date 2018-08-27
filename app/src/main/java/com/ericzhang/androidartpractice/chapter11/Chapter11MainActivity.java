@@ -165,14 +165,18 @@ public class Chapter11MainActivity extends Activity {
             long totalSize = 0;
             try {
                 for (int i = 0; i < count; i++) {
+                    Log.e(TAG, "doInBackground,执行：" + urls[i]);
                     Thread.sleep(5000);
                     totalSize += 100;
                     publishProgress((int) ((i + 1) / (float) count * 100));
+
+                    // 如果任务取消则跳出循环
                     if (isCancelled()) {
                         Log.e(TAG, "doInBackground,isCancelled.");
                         break;
                     }
 
+                    // 如果Activity退出则跳出循环
                     Activity activity = activityWeakReference.get();
                     if (activity == null || activity.isFinishing() || activity.isDestroyed()) {
                         Log.e(TAG, "doInBackground,activity is null");
