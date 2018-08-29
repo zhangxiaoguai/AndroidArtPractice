@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -45,7 +46,14 @@ public class Chapter9MainActivity extends Activity {
     }
 
     public void sendBroadcast(View view) {
+        // just examples
         sendBroadcast(new Intent());
+    }
+
+    public void contentProvider(View view) {
+        // just examples
+        Uri mUri = Uri.parse("123");
+        getContentResolver().query(mUri, new String[]{"123", "123"}, "", new String[]{"321", "321"}, "");
     }
 
     class MyReceiver extends BroadcastReceiver {

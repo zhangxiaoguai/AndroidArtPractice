@@ -19,3 +19,7 @@
     5.一个AsyncTask对象只能执行一次，即只能调用一次execute方法
     6.AsyncTask默认是串行执行传入的参数任务(除了Android1.6)
 
+### HandlerThread
+
+### IntentService
+
