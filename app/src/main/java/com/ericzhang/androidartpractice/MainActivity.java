@@ -17,6 +17,7 @@ import com.ericzhang.androidartpractice.chapter5.Chapter5MainActivity;
 import com.ericzhang.androidartpractice.chapter6.Chapter6MainActivity;
 import com.ericzhang.androidartpractice.chapter7.Chapter7MainActivity;
 import com.ericzhang.androidartpractice.chapter8.Chapter8MainActivity;
+import com.ericzhang.androidartpractice.chapter9.Chapter9MainActivity;
 
 public class MainActivity extends Activity {
 
@@ -58,6 +59,11 @@ public class MainActivity extends Activity {
 
     public void chapter8(View view) {
         Intent intent = new Intent(this, Chapter8MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void chapter9(View view) {
+        Intent intent = new Intent(this, Chapter9MainActivity.class);
         startActivity(intent);
     }
 

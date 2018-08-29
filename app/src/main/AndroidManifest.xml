@@ -11,6 +11,7 @@
         android:protectionLevel="normal" />
     <!-- 通过aidl远程调用时服务端所需的权限声明 end -->
 
+
     <!-- 通过aidl远程调用时客户端所需的权限声明 begin -->
     <uses-permission android:name="com.ericzhang.androidartpractice.chapter2.ipccategories.aidl.permisson.ACCESS_MAGAZINE_SERVICE" />
     <!-- 通过aidl远程调用时客户端所需的权限声明 end -->
@@ -21,8 +22,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <!-- ipc方式之socket需要申请网络权限 end -->
 
+    <!-- ipc方式之socket需要申请网络权限 end -->
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -77,6 +78,7 @@
             android:process=":ipccategories.messenger" />
 
         <activity android:name=".chapter2.ipccategories.aidl.AIDLActivity" />
+
         <service
             android:name=".chapter2.ipccategories.aidl.MagazineService"
             android:enabled="true"
@@ -90,6 +92,7 @@
             android:authorities="com.ericzhang.androidartpractice.chapter2.ipccategories.contentprovider"
             android:permission="com.ericzhang.androidartpractice.chapter2.ipccategories.contentprovider.PROVIDER"
             android:process=":ipccategories.provider" />
+
         <activity android:name=".chapter2.ipccategories.socket.TCPClientActivity" />
 
         <service
@@ -106,6 +109,7 @@
         <activity android:name=".chapter2.binderpool.BinderPoolActivity" />
         <!-- 第二章 end -->
 
+
         <!-- 第三章 begin -->
         <activity android:name=".chapter3.Chapter3MainActivity" />
         <activity android:name=".chapter3.activity.ScrollActivity" />
@@ -113,9 +117,11 @@
         <activity android:name=".chapter3.activity.Demo2Activity" />
         <!-- 第三章 end -->
 
+
         <!-- 第四章 begin -->
         <activity android:name=".chapter4.Chapter4MainActivity" />
         <!-- 第四章 end -->
+
 
         <!-- 第五章 begin -->
         <activity
@@ -137,28 +143,38 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
         </receiver>
+
         <activity android:name=".chapter5.EmulateActivity" />
         <!-- 第五章 end -->
+
 
         <!-- 第六章 begin -->
         <activity android:name=".chapter6.Chapter6MainActivity" />
         <!-- 第六章 end -->
+
 
         <!-- 第七章 begin -->
         <activity android:name=".chapter7.Chapter7MainActivity" />
         <activity android:name=".chapter7.LayoutAnimationActivity" />
         <!-- 第七章 end -->
 
+
         <!-- 第八章 begin -->
         <activity android:name=".chapter8.Chapter8MainActivity" />
         <!-- 第八章 end -->
 
+        <!-- 第九章 begin -->
+        <activity android:name=".chapter9.Chapter9MainActivity" />
+        <!-- 第九章 end -->
+
         <!-- 第十一章 begin -->
         <activity android:name=".chapter11.Chapter11MainActivity" />
+
         <service
             android:name=".chapter11.MyLocalIntentService"
             android:exported="false" />
         <!-- 第十一章 end -->
+
 
         <!-- 第十二章 begin -->
         <activity
@@ -166,13 +182,16 @@
             android:hardwareAccelerated="true" />
         <!-- 第十二章 end -->
 
+
         <!-- 第十三章 begin -->
         <activity android:name=".chapter13.Chapter13MainActivity" />
         <!-- 第十三章 end -->
 
+
         <!-- 第十四章 begin -->
         <activity android:name=".chapter14.Chapter14MainActivity" />
         <!-- 第十四章 end -->
+
 
         <!-- 第十五章 begin -->
         <activity android:name=".chapter15.Chapter15MainActivity" />

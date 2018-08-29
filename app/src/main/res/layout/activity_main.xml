@@ -69,6 +69,14 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:gravity="center"
+            android:onClick="chapter9"
+            android:text="第九章 四大组件的工作过程" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
             android:onClick="chapter11"
             android:text="第十一章 Android的线程和线程池" />
 

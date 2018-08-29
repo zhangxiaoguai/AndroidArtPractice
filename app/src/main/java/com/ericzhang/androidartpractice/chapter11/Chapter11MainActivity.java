@@ -36,19 +36,26 @@ public class Chapter11MainActivity extends Activity {
     }
 
     public void AsyncTaskBegin(View view) {
-        try {
-            if (downloadFilesTask != null) {
-                downloadFilesTask.cancel(true);
+        // 当没有在主线程执行该AsyncTask时
+        // 可以运行，onPreExecute()运行在当前的子线程，其他的方法会被AsyncTask使用的MainLooper自动切换到主线程
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (downloadFilesTask != null) {
+                        downloadFilesTask.cancel(true);
+                    }
+                    downloadFilesTask = new DownloadFilesTask(Chapter11MainActivity.this);
+                    URL url1 = new URL("http://google.com");
+                    URL url2 = new URL("http://baidu.com");
+                    URL url3 = new URL("http://apple.com");
+                    // 三个任务串行执行
+                    downloadFilesTask.execute(url1, url2, url3);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
             }
-            downloadFilesTask = new DownloadFilesTask(this);
-            URL url1 = new URL("http://google.com");
-            URL url2 = new URL("http://baidu.com");
-            URL url3 = new URL("http://apple.com");
-            // 三个任务串行执行
-            downloadFilesTask.execute(url1, url2, url3);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        }).start();
     }
 
     public void AsyncTaskCancel(View view) {

@@ -13,8 +13,8 @@
 
     弊端：
     1.AsyncTask的类在4.1之前必须在主线程中加载
-    2.AsyncTask对象必须在主线程中创建
-    3.execute方法必须在主线程中调用
+    2.AsyncTask对象必须在主线程中创建（存疑）
+    3.execute方法必须在主线程中调用（存疑）
     4.不要在程序中直接调用onPreExecute(),onPostExecute(),doInBackground()和onProgressUpdate()
     5.一个AsyncTask对象只能执行一次，即只能调用一次execute方法
     6.AsyncTask默认是串行执行传入的参数任务(除了Android1.6)
