@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.ericzhang.androidartpractice.chapter1.Chapter1MainActivity1;
 import com.ericzhang.androidartpractice.chapter11.Chapter11MainActivity;
 import com.ericzhang.androidartpractice.chapter12.Chapter12MainActivity;
 import com.ericzhang.androidartpractice.chapter13.Chapter13MainActivity;
@@ -25,6 +26,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public void chapter1(View view) {
+        startActivity(new Intent(this, Chapter1MainActivity1.class));
     }
 
     public void chapter2(View view) {
@@ -89,4 +94,5 @@ public class MainActivity extends Activity {
     public void chapter15(View view) {
         startActivity(new Intent(this, Chapter15MainActivity.class));
     }
+
 }

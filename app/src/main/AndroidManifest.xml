@@ -40,6 +40,41 @@
             </intent-filter>
         </activity>
 
+        <!-- 第一章 begin -->
+        <activity android:name=".chapter1.Chapter1MainActivity1" />
+        <!-- activity中只指定launchMode为singleTask而不指定taskAffinity时，singleTask不起作用 -->
+        <activity
+            android:name=".chapter1.Chapter1MainActivity2"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.ericzhang.androidartpractice.chapter1" />
+        <activity
+            android:name=".chapter1.Chapter1MainActivity3"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.ericzhang.androidartpractice.chapter1">
+            <intent-filter>
+                <!-- Intent中action必须存在且和过滤规则中的其中一个action相同，区分大小写 -->
+                <action android:name="com.ericzhang.androidartpractice.1" />
+                <action android:name="com.ericzhang.androidartpractice.2" />
+                <action android:name="com.ericzhang.androidartpractice.3" />
+
+                <!-- Intent中如果含有category那么所有的category都必须和过滤规则中的其中一个category相同 -->
+                <!-- 系统在调用startActivityForResult时会默认为Intent加上DEFAULT的category，如果要支持隐式调用那么Activity在清单文件声明时要声明category支持DEFAULT -->
+                <category android:name="com.ericzhang.androidartpractice.a" />
+                <category android:name="com.ericzhang.androidartpractice.b" />
+                <category android:name="com.ericzhang.androidartpractice.c" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <!-- data结构中uri的schema默认值为content或file，即如果清单文件data中没有声明scheme，则Intent中scheme必须为content或file才行 -->
+                <!-- Intent中必须含有data数据，并且data数据能够完全匹配过滤规则中的某一个data -->
+                <data android:mimeType="text/plain" />
+                <data android:scheme="http" />
+            </intent-filter>
+            <!-- Intent-Filter的匹配规则对于Service和BroadcastReceiver同样适用 -->
+
+        </activity>
+        <!-- 第一章 end -->
+
+
         <!-- 第二章 begin -->
         <activity android:name=".chapter2.Chapter2MainActivity" />
         <activity android:name=".chapter2.binder.BinderActivity" />
@@ -163,9 +198,11 @@
         <activity android:name=".chapter8.Chapter8MainActivity" />
         <!-- 第八章 end -->
 
+
         <!-- 第九章 begin -->
         <activity android:name=".chapter9.Chapter9MainActivity" />
         <!-- 第九章 end -->
+
 
         <!-- 第十一章 begin -->
         <activity android:name=".chapter11.Chapter11MainActivity" />

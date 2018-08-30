@@ -13,6 +13,14 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:gravity="center"
+            android:onClick="chapter1"
+            android:text="第一章 Activity生命周期和启动模式" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
             android:onClick="chapter2"
             android:text="第二章 IPC机制" />
 

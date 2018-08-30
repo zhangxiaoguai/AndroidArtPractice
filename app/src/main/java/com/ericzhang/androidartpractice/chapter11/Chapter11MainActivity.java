@@ -239,6 +239,23 @@ public class Chapter11MainActivity extends Activity {
         }
 
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (downloadFilesTask != null) {
+            downloadFilesTask.cancel(true);
+        }
+        if (downloadFilesConcurrentTask1 != null) {
+            downloadFilesConcurrentTask1.cancel(true);
+        }
+        if (downloadFilesConcurrentTask2 != null) {
+            downloadFilesConcurrentTask2.cancel(true);
+        }
+        if (downloadFilesConcurrentTask3 != null) {
+            downloadFilesConcurrentTask3.cancel(true);
+        }
+    }
 }
 
 
