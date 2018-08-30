@@ -135,6 +135,7 @@
             android:enabled="true"
             android:exported="true"
             android:process=":ipccategories.socket" />
+
         <service
             android:name=".chapter2.binderpool.BinderPoolService"
             android:enabled="true"

@@ -45,7 +45,7 @@ public class MyBlockCanaryContext extends BlockCanaryContext {
 
     @Override
     public int provideBlockThreshold() {
-        Log.e(TAG, "provideBlockThreshold");
+//        Log.e(TAG, "provideBlockThreshold");
 
         return super.provideBlockThreshold();
     }

@@ -8,6 +8,7 @@ import android.os.Looper;
 import android.os.Parcel;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.List;
@@ -40,7 +41,7 @@ public class MagazineService extends Service {
             if (packagesForUid != null && packagesForUid.length > 0) {
                 packageName = packagesForUid[0];
             }
-            if (!packageName.startsWith("com.ericzhang")) {
+            if (TextUtils.isEmpty(packageName) || !packageName.startsWith("com.ericzhang")) {
                 Log.e(TAG, "onTransact：没有对应的权限！");
                 return false;
             }
@@ -71,7 +72,7 @@ public class MagazineService extends Service {
             Log.e(TAG, "myPid：" + android.os.Process.myPid() + " addMagazine: "
                     + "是否是主线程：" + (Looper.getMainLooper() == Looper.myLooper()));
 
-            magazineList.add(magazine);
+            onNewMagazineArrived(magazine);
         }
 
         @Override

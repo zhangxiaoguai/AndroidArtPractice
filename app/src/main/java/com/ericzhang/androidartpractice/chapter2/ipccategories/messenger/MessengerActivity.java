@@ -33,11 +33,13 @@ public class MessengerActivity extends Activity {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case 996:
+                case 996: {
                     Log.e("MessengerActivity", "receive message from server: " + msg.getData().getString("answer"));
                     break;
-                default:
+                }
+                default: {
                     super.handleMessage(msg);
+                }
             }
         }
     }

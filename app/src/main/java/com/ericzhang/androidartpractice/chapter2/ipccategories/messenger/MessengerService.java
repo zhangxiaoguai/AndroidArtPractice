@@ -18,7 +18,7 @@ public class MessengerService extends Service {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-                case 998:
+                case 998: {
                     Log.e(TAG, "receive message from client: " + msg.getData().getString("msg"));
 
                     try {
@@ -27,14 +27,18 @@ public class MessengerService extends Service {
                         Bundle bundle = new Bundle();
                         bundle.putString("answer", "hello,this is server,I`ll reply to you later." + count++);
                         replyMsg.setData(bundle);
-                        client.send(replyMsg);
+                        if (client != null) {
+                            client.send(replyMsg);
+                        }
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
 
                     break;
-                default:
+                }
+                default: {
                     super.handleMessage(msg);
+                }
             }
         }
     }
