@@ -43,6 +43,8 @@ public class Chapter8MainActivity extends Activity implements View.OnTouchListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chapter8_main);
 
+        // 返回的是Activity的WindowManager
+        // if (WINDOW_SERVICE.equals(name)) { return mWindowManager; }
         mWindowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
     }
 
@@ -72,14 +74,14 @@ public class Chapter8MainActivity extends Activity implements View.OnTouchListen
 
     public void button2(View view) {
         if (mDialog == null) {
-            // 当Dialog使用application的context时需要指定Window类型为系统类型
+            // 当Dialog使用activity的context时无须指定Window类型为系统类型，此时dialog自动依附当前activity
+            // 当Dialog使用application的context时需要指定Window类型为系统类型：mDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ERROR);
             mDialog = new Dialog(this.getApplicationContext());
             TextView mTextView = new TextView(this);
-            mTextView.setText("this is toast!");
+            mTextView.setText("this is dialog!");
             mDialog.setContentView(mTextView);
-            // 指定Window类型为系统类型
+            // 指定Window类型为系统类型，需要申请SystemAlert权限
             mDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ERROR);
-            // 需要申请SystemAlert权限
         }
         mDialog.show();
     }
@@ -123,10 +125,12 @@ public class Chapter8MainActivity extends Activity implements View.OnTouchListen
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 // 手指按下时记录必要数据,纵坐标的值都需要减去状态栏高度
-                xInView = (int) event.getX();
-                yInView = (int) event.getY();
+                // 记录手指按下时的坐标，校验是否是onClick事件
                 xDownInScreen = (int) event.getRawX();
                 yDownInScreen = (int) (event.getRawY() - getStatusBarHeight());
+                // 计算移动位置的必要参数四个
+                xInView = (int) event.getX();
+                yInView = (int) event.getY();
                 xInScreen = (int) event.getRawX();
                 yInScreen = (int) (event.getRawY() - getStatusBarHeight());
                 break;

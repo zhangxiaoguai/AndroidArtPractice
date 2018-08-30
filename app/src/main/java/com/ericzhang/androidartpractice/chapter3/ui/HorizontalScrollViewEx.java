@@ -123,8 +123,9 @@ public class HorizontalScrollViewEx extends ViewGroup {
                 mVelocityTracker.clear();
                 break;
             }
-            default:
+            default: {
                 break;
+            }
         }
 
         mLastX = x;
