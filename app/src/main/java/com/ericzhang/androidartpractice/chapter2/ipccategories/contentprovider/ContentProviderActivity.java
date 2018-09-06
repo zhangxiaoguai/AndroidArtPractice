@@ -43,6 +43,14 @@ public class ContentProviderActivity extends Activity {
     }
 
     public void deleteBook(View view) {
+        // TODO: 2018/9/6  删除
+    }
+
+    public void updateBook(View view) {
+        // TODO: 2018/9/6  更新
+    }
+
+    public void queryBook(View view) {
         Cursor bookCursor = getContentResolver().
                 query(bookUri, new String[]{"_id", "name"}, null, null, null);
         while (bookCursor.moveToNext()) {
@@ -62,11 +70,5 @@ public class ContentProviderActivity extends Activity {
             Log.e(TAG, "query user: " + book);
         }
         userCursor.close();
-    }
-
-    public void updateBook(View view) {
-    }
-
-    public void queryBook(View view) {
     }
 }

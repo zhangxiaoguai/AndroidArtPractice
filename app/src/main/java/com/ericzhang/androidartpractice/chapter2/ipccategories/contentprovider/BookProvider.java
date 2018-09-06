@@ -33,7 +33,7 @@ public class BookProvider extends ContentProvider {
     public boolean onCreate() {
         // main主线程
         Log.e(TAG, "onCreate, current thread is " + Thread.currentThread().getName());
-        // 远程调用时，provider创建先于application的创建
+        // 远程调用时，provider的onCreate先于application的onCreate执行
         Log.e(TAG, "onCreate, current process is " + Process.myPid());
 
         mContext = getContext();
