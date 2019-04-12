@@ -28,6 +28,10 @@ public class TestButton extends TextView {
     public TestButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
+
+        postInvalidate();
+
+        invalidate();
     }
 
     private void init() {

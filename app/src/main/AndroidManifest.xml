@@ -42,7 +42,7 @@
 
         <!-- 第一章 begin -->
         <activity android:name=".chapter1.Chapter1MainActivity1" />
-        <!-- activity中只指定launchMode为singleTask而不指定taskAffinity时，singleTask不起作用 -->
+        <!-- activity中只指定launchMode为singleTask而不指定taskAffinity时，singleTask使用的是当前默认的BackStack -->
         <activity
             android:name=".chapter1.Chapter1MainActivity2"
             android:launchMode="singleTask"
@@ -64,7 +64,7 @@
                 <category android:name="com.ericzhang.androidartpractice.c" />
                 <category android:name="android.intent.category.DEFAULT" />
 
-                <!-- data结构中uri的schema默认值为content或file，即如果清单文件data中没有声明scheme，则Intent中scheme必须为content或file才行 -->
+                <!-- data结构中uri的scheme默认值为content或file，即如果清单文件data中没有声明scheme，则Intent中scheme必须为content或file才行 -->
                 <!-- Intent中必须含有data数据，并且data数据能够完全匹配过滤规则中的某一个data -->
                 <data android:mimeType="text/plain" />
                 <data android:scheme="http" />
